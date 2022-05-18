@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">PBT - Food Order App</string>
+    <string name="top_text">Azrraf D’Cafe</string>
+    <string name="top_order">Menu</string>
+    <string name="Coffee">Coffee</string>
+    <string name="CoffeePrice">Rm 3.50</string>
+    <string name="Coffeeaddon1">Coffee Add-on: Cream</string>
+    <string name="Coffeeaddon1Price">Rm 1.00</string>
+    <string name="Coffeeaddon2">Coffee Add-on: Chocolate</string>
+    <string name="Coffeeaddon2Price">Rm 2.00</string>
+    <string name="food1">Char Kuey Teaw Udang</string>
+    <string name="food1Price">Rm 8.00</string>
+    <string name="food2">Nasi Goreng Pattaya</string>
+    <string name="food2Price">Rm 6.00</string>
+    <string name="food3">Nasi Ayam Hainan</string>
+    <string name="food3Price">Rm 7.00</string>
+</resources>
