@@ -14,4 +14,6 @@
     <string name="food2Price">Rm 6.00</string>
     <string name="food3">Nasi Ayam Hainan</string>
     <string name="food3Price">Rm 7.00</string>
+    <string name="submit">Place Order</string>
+    <string name="order">Your Order</string>
 </resources>
