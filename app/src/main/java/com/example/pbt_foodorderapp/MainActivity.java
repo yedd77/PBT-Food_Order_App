@@ -2,6 +2,7 @@ package com.example.pbt_foodorderapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,11 +12,14 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
+import java.text.DecimalFormat;
+
 public class MainActivity extends AppCompatActivity {
 
     //declare variable
-    double drink, addOn, food = 0.00;
-    String order , price;
+    double drink, addOn, food, totalPrice = 0.00;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         Button placeOrderButton = (Button) findViewById(R.id.placeOrderButton);
         TextView totalOrder = (TextView) findViewById(R.id.totalOrder);
         TextView orderPrice = (TextView) findViewById(R.id.price);
-
+        TextView TotalPrice = (TextView) findViewById(R.id.TotalPrice);
 
         //declare initial state for specific container
         coffeeCreamCont.setVisibility(View.GONE);
@@ -52,9 +56,6 @@ public class MainActivity extends AppCompatActivity {
                     coffeeChocoCont.setVisibility(View.VISIBLE);
                     coffeeCreamCont.setVisibility(View.VISIBLE);
                     drink = 3.5;
-                    order = "\n Coffee";
-                    price = "\n Rm 3.50";
-
                 }
 
                 //change container to initial state if coffee option not chosen
@@ -63,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
                     coffeeChocoCont.setVisibility(View.GONE);
                     coffeeCream.setChecked(false);
                     coffeeChoco.setChecked(false);
-                    addOn = 0;
+                    drink = 0;
                 }
             }
         });
@@ -142,8 +143,38 @@ public class MainActivity extends AppCompatActivity {
 
         //event listener for order button
         placeOrderButton.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View v) {
+                String price = "";
+                String order = "";
+                if(coffee.isChecked()){
+                    order += "\n Coffee";
+                    price += "\n Rm 3.50";
+                }
+                if(coffeeCream.isChecked()){
+                    order += "\n Coffee Add-on: Cream";
+                    price += "\n Rm 1.00";
+                }
+                if(coffeeChoco.isChecked()){
+                    order += "\n Coffee Add-on: Chocolate";
+                    price += "\n Rm 2.00";
+                }
+                if(food1.isChecked()){
+                    order += "\n Char Kuey Teaw Udang";
+                    price += "\n Rm 8.00";
+                }
+                if(food2.isChecked()){
+                    order += "\n Nasi Goreng Pataya";
+                    price += "\n Rm 6.00";
+                }
+                if(food3.isChecked()){
+                    order += "\n Nasi Ayam Hainan";
+                    price += "\n Rm 7.00";
+                }
+
+                totalPrice = drink + food + addOn;
+                TotalPrice.setText("Rm" + totalPrice);
                 totalOrder.setText(order);
                 orderPrice.setText(price);
                 orderCont.setVisibility(View.VISIBLE);
